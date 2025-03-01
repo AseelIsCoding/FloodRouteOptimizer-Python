@@ -1,61 +1,34 @@
-Flood-Aware Routing Optimization for Jeddah’s Rainy Days
-Authors:
+# 🌊 Flood-Aware Routing Optimization for Jeddah’s Rainy Days
 
-Aseel A. Allmehmadi – Department of Computer Science and Engineering, University of Jeddah (2211696@uj.edu.sa)
-Hadeel A. Sirdar – Department of Computer Science and Engineering, University of Jeddah (2210937@uj.edu.sa)
-Fatima A. Almaashi – Department of Computer Science and Engineering, University of Jeddah (2210392@uj.edu.sa)
-Overview
+## 📌 Overview
+Jeddah, Saudi Arabia, frequently experiences severe **flash floods**, causing disruptions to transportation and endangering residents. This project presents a **flood-aware routing optimization model** to **enhance urban resilience** and ensure **safe transportation routes** during floods.
 
-Jeddah, Saudi Arabia, is prone to severe flooding due to its unique topographical features and rapid urban expansion. This project develops an optimization model for flood-aware routing, improving urban resilience by ensuring safer transportation routes during floods.
+We explore **two optimization methods**:
+- **✅ Exact Optimization (Linear Programming):** Guarantees optimal routes, ideal for **small-scale evacuations**.
+- **⚡ Simulated Annealing:** Provides near-optimal solutions with faster computation, **scalable for large networks**.
 
-We implemented two optimization techniques:
+## 🛠️ Methodology
+The optimization problem is formulated to **maximize route safety** based on:
+- **🛣️ Road Quality (q)** – Better roads are safer.
+- **🚰 Drainage Efficiency (e)** – Roads with effective drainage are prioritized.
+- **🌊 Flood Depth (d)** – Lower flood depth means safer travel.
 
-Exact Optimization (Linear Programming) for high-precision, small-scale problems.
-Simulated Annealing for near-optimal solutions with better scalability for large-scale networks.
-Methodology
+Each road segment is **evaluated** using a **safety score**, and constraints ensure:
+- **✅ Route Continuity:** The route must be connected from source to destination.
+- **🚧 Exclusion of Unsafe Roads:** Roads that fail to meet safety thresholds (quality, drainage, flood depth) are removed.
+- **🌍 Geospatial Flood Risk Zones:** Roads are categorized into **high, moderate, and low-risk zones**.
 
-The optimization problem is formulated to maximize route safety by considering:
+## 🏗️ Optimization Approaches
+We implemented and compared two methods:
 
-Road Quality (q)
-Drainage Efficiency (e)
-Flood Depth (d)
-Each road segment is evaluated based on a safety score, and constraints ensure:
+| Method | Pros | Cons |
+|--------|------|------|
+| **Exact Optimization (LP)** | ✅ Guarantees the safest possible route<br>✅ Best for **evacuations** | ❌ Computationally expensive<br>❌ Not scalable for large datasets |
+| **Simulated Annealing** | ✅ Scalable & computationally efficient<br>✅ Suitable for **large networks & real-time routing** | ❌ Does not guarantee a globally optimal solution |
 
-Route continuity
-Exclusion of unsafe roads (based on quality, drainage efficiency, and flood depth thresholds)
-The project uses geospatial flood risk maps to classify Jeddah into high, moderate, and low-risk zones.
-
-Optimization Approaches
-Exact Optimization (Linear Programming)
-Guarantees the safest possible route.
-Best for small-scale or critical evacuation scenarios.
-Computationally expensive for large networks.
-Simulated Annealing
-Provides a near-optimal solution in significantly less time.
-Suitable for real-time, large-scale routing.
-Balances accuracy with computational efficiency.
-Installation
-
-Requirements
-Python 3.x
-Required libraries:
-pip install numpy pandas matplotlib scipy pulp
-Clone the Repository
-git clone https://github.com/yourusername/FloodAwareRouting.git
-cd FloodAwareRouting
-Run the Optimization
-Execute the Jupyter Notebook:
-
-jupyter notebook Flood-Aware Routing Optimization.ipynb
-Dataset
-
-The dataset used for this study includes flood risk zones and road network data.
-Located in datasets_small_large.xlsx.
-Results & Analysis
-
-Exact Optimization works best for small-scale evacuation planning.
-Simulated Annealing is effective for large-scale, real-time applications.
-Future improvements include:
-Integration with real-time weather and traffic data.
-Machine learning-based flood prediction models.
-Development of a public-facing application for real-time route guidance.
+## 📂 Installation & Usage
+### 🔧 Requirements
+- Python 3.x
+- Install dependencies:
+  ```bash
+  pip install numpy pandas matplotlib scipy pulp
